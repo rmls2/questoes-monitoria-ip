@@ -1,4 +1,5 @@
-genero = input('Gênero selecionado: ')
+#Genero selecionado
+genero = input()
 
 albuns = [("Abbey Road", "The Beatles", 1969, "Rock"), 
           ("The Dark Side of the Moon", "Pink Floyd", 1973, "Rock"), 
@@ -66,13 +67,13 @@ albuns_encontrados = buscar_album_por_genero(albuns, genero)
 if albuns_encontrados:
     print(f'Nessa galeria há {len(albuns_encontrados)} albuns de {genero}.\nOs albuns encontrados foram:')
     for album in albuns_encontrados:
-        print(f"-{album[0]} do/da artista/banda {album[1]} lançado em {album[2]}")
+        print(f"- {album[0]} do/da artista/banda {album[1]} lançado em {album[2]}")
 
 else:
     print("você vai precisar adcionar um novo álbum ao catálogo! Não encontramos nenhum álbum desse estilo musical!")
     novo_catalogo = add_album_por_genero(albuns, genero)
-    print("Oba, você add um novo estilo musical ao catálogo!")
-    print(f"Este foi o novo álbum adcionado:\n-{novo_catalogo[-1][0]} do/da artista/banda {novo_catalogo[-1][1]} lançado em {novo_catalogo[-1][2]}")
+    print("Oba, você adicionou um novo estilo musical ao catálogo!")
+    print(f"Este foi o novo álbum adcionado:\n- {novo_catalogo[-1][0]} do/da artista/banda {novo_catalogo[-1][1]} lançado em {novo_catalogo[-1][2]}")
 
  
     
