@@ -3,9 +3,7 @@ discos_por_artistas = {'Priscila Senna': 40, 'Eduarda': 60,
                        'Academia da Berlinda': 30, 'Martins': 25, 'Igor de Carvalho': 25}
 fortuna_dos_artistas = {'Priscila Senna': 10000, 'Eduarda': 9990, 'Academia da Berlinda': 9995,
                         'Martins': 9970, 'Igor de Carvalho': 9965}
-
-""" podería ser usado o match case para ficar mais elegante
-porém não sei se essa funcionaldiade é ensinada na cadeira de IP ja que é uma estrutura de seleção recente (final de 2021) em python  """
+    
 
 # funções para manipulação dos valores dos dicionários 
 def lucro_apos_a_tributacao(qtd_discos: int, valor_arrecadado: int) -> float: 
@@ -24,7 +22,7 @@ def lucro_apos_a_tributacao(qtd_discos: int, valor_arrecadado: int) -> float:
 
 
 # input inicial que vai determinar a quantidade de artistas que terão discos vendidos 
-numero_de_artistas = int(input('Digite o número de artistas selecionados: '))
+numero_de_artistas = int(input(''))
 lista_de_artista = []
 
 for i in range(numero_de_artistas):
@@ -38,10 +36,11 @@ for i in range(numero_de_artistas):
         lista_de_artista.append(artista_selecionado)
 
 
-print('\nEstes foram os discos vendidos:\n')
+print('\nEstes foram os discos vendidos nesta semana:')
 for j in lista_de_artista:
     print(f'{j} - Discos vendidos: {discos_por_artistas[j]}')
 
-print('\nEsta é a fortuna atual dos artistas:\n')
-for chave, valor in fortuna_dos_artistas.items():
-    print(f'{chave}: R$ {valor}')
+print('\nEsta é a fortuna atual dos artistas que venderam discos nesta semana:')
+for artista, fortuna in fortuna_dos_artistas.items():
+    if artista in lista_de_artista:
+        print(f'{artista}: R$ {fortuna}')
