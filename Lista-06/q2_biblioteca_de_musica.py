@@ -65,12 +65,12 @@ albuns_encontrados = buscar_album_por_genero(albuns, genero)
 # vamos analisar se existe albuns do gênero procurado
 
 if albuns_encontrados:
-    print(f'Nessa galeria há {len(albuns_encontrados)} albuns de {genero}.\nOs albuns encontrados foram:')
+    print(f'Nessa galeria há {len(albuns_encontrados)} albuns de {genero}. Os albuns encontrados foram:')
     for album in albuns_encontrados:
         print(f"- {album[0]} do/da artista/banda {album[1]} lançado em {album[2]}")
 
 else:
-    print("você vai precisar adcionar um novo álbum ao catálogo! Não encontramos nenhum álbum desse estilo musical!")
+    print("Você vai precisar adicionar um novo álbum ao catálogo! Não encontramos nenhum álbum desse estilo musical!")
     novo_catalogo = add_album_por_genero(albuns, genero)
     print("Oba, você adicionou um novo estilo musical ao catálogo!")
     print(f"Este foi o novo álbum adcionado:\n- {novo_catalogo[-1][0]} do/da artista/banda {novo_catalogo[-1][1]} lançado em {novo_catalogo[-1][2]}")
