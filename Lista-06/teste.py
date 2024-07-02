@@ -1,3 +1,4 @@
-l = [2,5,1,6]
-l.sort()
-print(l)
+f = {}
+
+if not f:
+    print('dicionario vazio é none')

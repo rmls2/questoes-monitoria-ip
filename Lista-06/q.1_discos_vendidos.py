@@ -20,10 +20,13 @@ def lucro_apos_a_tributacao(qtd_discos: int, valor_arrecadado: int) -> float:
         return valor_arrecadado*0.93
 
 
-
+#semana 2
 # input inicial que vai determinar a quantidade de artistas que terão discos vendidos 
 numero_de_artistas = int(input(''))
-lista_de_artista = []
+lista_de_artista_considereados = []
+# discos_artistas_desconsiderados  = discos_por_artistas.copy()
+# novo_fortuna_dos_artistas = fortuna_dos_artistas.copy()
+qtd_novos_artistas = 0
 
 for i in range(numero_de_artistas):
     artista_selecionado, qtd_discos = input().split(' - ')
@@ -33,14 +36,31 @@ for i in range(numero_de_artistas):
         
         discos_por_artistas[artista_selecionado] += qtd_discos
         fortuna_dos_artistas[artista_selecionado] += lucro_apos_a_tributacao(qtd_discos, qtd_discos*20) #cada disco custa R$ 20,00
-        lista_de_artista.append(artista_selecionado)
+        lista_de_artista_considereados.append(artista_selecionado)
+
+    else:
+        discos_por_artistas[artista_selecionado] = qtd_discos
+        qtd_novos_artistas += 1
+
+if lista_de_artista_considereados:
+    print('\nEstes foram os discos vendidos até a semana 2 pelos artistas considerados:')
+    for j in lista_de_artista_considereados:
+        print(f'{j} - Discos vendidos: {discos_por_artistas[j]}')
+else:
+    print("Os artistas considerados não venderam discos na semana 2!")
 
 
-print('\nEstes foram os discos vendidos nesta semana:')
-for j in lista_de_artista:
-    print(f'{j} - Discos vendidos: {discos_por_artistas[j]}')
-
-print('\nEsta é a fortuna atual dos artistas que venderam discos nesta semana:')
+print('\nEsta é a fortuna atual dos artistas considerados:')
 for artista, fortuna in fortuna_dos_artistas.items():
-    if artista in lista_de_artista:
-        print(f'{artista}: R$ {fortuna}')
+    print(f'{artista}: R$ {fortuna}')
+
+
+discos = list(discos_por_artistas.items())
+discos_artistas_desconsiderados = dict(discos[-qtd_novos_artistas:])
+
+if qtd_novos_artistas == 0:
+    print('\nNa semana 2 não tivemos vendas de novos artista no mercado!')
+else:
+    print("\nNa semana 2 tivemos vendas de novos artistas no mercado:")
+    for artista, disco in discos_artistas_desconsiderados.items():
+        print(f'{artista} - Discos vendidos: {disco}')
